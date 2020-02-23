@@ -5,7 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.project.segunfrancis.quickbuy.data.ItemData
 import com.project.segunfrancis.quickbuy.model.Item
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -47,7 +46,7 @@ abstract class ItemsRoomDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    ItemData.populateDatabase(database.itemDao())
+                    //ItemData.populateDatabase(database.itemDao())
                 }
             }
         }

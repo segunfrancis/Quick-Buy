@@ -32,7 +32,6 @@
             app:tabTextColor="@android:color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="0dp"
@@ -48,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
+        android:text="1"
         app:icon="@drawable/ic_shopping_cart"
         app:iconTint="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"

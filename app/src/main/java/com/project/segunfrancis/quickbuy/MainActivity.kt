@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     ) {
         when (destination.id) {
             R.id.homeFragment -> hideActionBar()
+            R.id.itemDetailsFragment -> hideActionBar()
             else -> showActionBar()
         }
     }

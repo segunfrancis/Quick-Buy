@@ -17,10 +17,45 @@
             app:exitAnim="@anim/fragment_close_exit"
             app:popEnterAnim="@anim/fragment_close_enter"
             app:popExitAnim="@anim/fragment_open_exit" />
+        <action
+            android:id="@+id/action_homeFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/shoppingCartFragment"
         android:name="com.project.segunfrancis.quickbuy.ui.ShoppingCartFragment"
         android:label="Items"
         tools:layout="@layout/fragment_shopping_cart" />
+    <fragment
+        android:id="@+id/laptopFragment"
+        android:name="com.project.segunfrancis.quickbuy.ui.LaptopFragment"
+        android:label="LaptopFragment"
+        tools:layout="@layout/fragment_laptop"/>
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.project.segunfrancis.quickbuy.ui.PhoneFragment"
+        android:label="PhoneFragment"
+        tools:layout="@layout/fragment_phone"/>
+    <fragment
+        android:id="@+id/shoeFragment"
+        android:name="com.project.segunfrancis.quickbuy.ui.ShoeFragment"
+        android:label="ShoeFragment"
+        tools:layout="@layout/fragment_shoe"/>
+    <fragment
+        android:id="@+id/televisionFragment"
+        android:name="com.project.segunfrancis.quickbuy.ui.TelevisionFragment"
+        android:label="TelevisionFragment"
+        tools:layout="@layout/fragment_television"/>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.project.segunfrancis.quickbuy.ui.CameraFragment"
+        android:label="fragment_laptop"
+        tools:layout="@layout/fragment_camera" />
+    <dialog
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.project.segunfrancis.quickbuy.ui.ItemDetailsFragment"
+        android:label="fragment_item_details"
+        tools:layout="@layout/fragment_item_details" />
 </navigation>

@@ -3,4 +3,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description_placeholder_text">Nam commodo suscipit quam. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Praesent blandit laoreet nibh. Vivamus consectetuer hendrerit lacus. Vivamus quis mi. Fusce ac felis sit amet ligula pharetra condimentum. Etiam iaculis nunc ac metus. Quisque ut nisi. Praesent adipiscing.</string>
 </resources>
