@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.project.segunfrancis.quickbuy.model.Item
+import com.project.segunfrancis.quickbuy.model.ShoppingCartItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
  * Created by SegunFrancis
  */
 
-@Database(entities = [Item::class], version = 1, exportSchema = false)
+@Database(entities = [Item::class, ShoppingCartItem::class], version = 1, exportSchema = false)
 abstract class ItemsRoomDatabase : RoomDatabase() {
 
     abstract fun itemDao(): ItemDao

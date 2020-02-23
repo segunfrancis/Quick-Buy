@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 
@@ -27,6 +29,13 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
+        itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
+        itemViewModel.insert(ItemData.populateDatabase())
+        itemViewModel.shoppingCartList.observe(requireActivity(), Observer {
+            if (it.isNotEmpty())
+                root.findViewById<TextView>(R.id.shopping_cart_size_text).text =
+                    it.size.toString()
+        })
         return root
     }
 
@@ -34,8 +43,6 @@ class HomeFragment : Fragment() {
         shopping_cart_fab.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_shoppingCartFragment)
         }
-        itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
-        itemViewModel.insert(ItemData.populateDatabase())
         categoryPagerAdapter = CategoryPagerAdapter(childFragmentManager)
         viewPager.adapter = categoryPagerAdapter
         tabLayout.setupWithViewPager(viewPager)
