@@ -13,7 +13,8 @@ object ItemData {
         var item = Item(
             "Adidas Dragon Ball",
             "shoe",
-            "Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Nam at tortor in tellus interdum sagittis. Aliquam eu nunc.",
+            "Morbi mattis ullamcorper velit. Sed libero. Sed a libero. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Ut tincidunt tincidunt erat." +
+                    "\n" + "Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Nam at tortor in tellus interdum sagittis. Aliquam eu nunc.",
             "$12,000",
             R.drawable.adidas_dragon_ball
         )
@@ -70,7 +71,7 @@ object ItemData {
         item = Item(
             "Adidas 1",
             "shoe",
-            " Cras varius. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum. Etiam rhoncus. Vivamus euismod mauris.\n" +
+            "Cras varius. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum. Etiam rhoncus. Vivamus euismod mauris.\n" +
                     "\n" + "Fusce egestas elit eget lorem. Vivamus consectetuer hendrerit lacus. Aliquam lobortis. Vivamus quis mi. Fusce commodo aliquam arcu.",
             "$1,000",
             R.drawable.adidas_1
@@ -95,7 +96,7 @@ object ItemData {
         item = Item(
             "Adidas 4",
             "shoe",
-            " Cras varius. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum. Etiam rhoncus. Vivamus euismod mauris.\n" +
+            "Cras varius. Praesent porttitor, nulla vitae posuere iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum. Etiam rhoncus. Vivamus euismod mauris.\n" +
                     "\n" + "Fusce egestas elit eget lorem. Vivamus consectetuer hendrerit lacus. Aliquam lobortis. Vivamus quis mi. Fusce commodo aliquam arcu.",
             "$3,000",
             R.drawable.adidas_4

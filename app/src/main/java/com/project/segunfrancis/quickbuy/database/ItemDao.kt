@@ -28,6 +28,6 @@ interface ItemDao {
     @Query("SELECT * from item_table where itemCategory is 'camera'")
     fun getCameras(): LiveData<List<Item>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(items: List<Item>)
 }
