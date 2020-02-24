@@ -37,8 +37,8 @@ interface ItemDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertIntoShoppingCartItem(shoppingCartItem: ShoppingCartItem)
 
-    /*@Query("DELETE FROM shopping_cart_table where name is ")
-    suspend fun deleteSingleItem(itemName: String)*/
+    @Delete
+    suspend fun deleteSingleItem(shoppingCartItem: ShoppingCartItem)
 
     @Query("DELETE FROM shopping_cart_table")
     suspend fun clearShoppingCart()

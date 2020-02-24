@@ -12,5 +12,5 @@ import java.io.Serializable
 data class ShoppingCartItem(
     @PrimaryKey val name: String,
     val price: String,
-    val quantity: Int
+    var quantity: Int
 ) : Serializable

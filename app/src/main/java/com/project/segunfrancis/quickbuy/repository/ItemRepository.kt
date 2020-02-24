@@ -23,8 +23,8 @@ class ItemRepository(private var itemDao: ItemDao) {
     suspend fun insertIntoShoppingCartItem(shoppingCartItem: ShoppingCartItem) =
         itemDao.insertIntoShoppingCartItem(shoppingCartItem)
 
-   /* suspend fun deleteSingleItem(shoppingCartItem: ShoppingCartItem) =
-        itemDao.deleteSingleItem(shoppingCartItem)*/
+    suspend fun deleteSingleItem(shoppingCartItem: ShoppingCartItem) =
+        itemDao.deleteSingleItem(shoppingCartItem)
 
     suspend fun clearShoppingCart() = itemDao.clearShoppingCart()
 }
