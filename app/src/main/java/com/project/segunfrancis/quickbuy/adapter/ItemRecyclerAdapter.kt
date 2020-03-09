@@ -42,7 +42,7 @@ class ItemRecyclerAdapter : RecyclerView.Adapter<ItemRecyclerAdapter.ItemViewHol
             // Bind the itemList with View
             item_image.setImageResource(item.imageResource)
             item_name.text = item.name
-            item_price.text = item.price
+            item_price.text = "$".plus(item.price.toString())
 
             setOnClickListener {
                 // Handle on click

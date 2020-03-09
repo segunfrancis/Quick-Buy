@@ -11,6 +11,6 @@ import java.io.Serializable
 @Entity(tableName = "shopping_cart_table")
 data class ShoppingCartItem(
     @PrimaryKey val name: String,
-    val price: String,
+    var price: Int,
     var quantity: Int
 ) : Serializable

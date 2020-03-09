@@ -47,14 +47,14 @@ class ShoppingCartAdapter : RecyclerView.Adapter<ShoppingCartAdapter.ShoppingCar
         private val repository = ItemRepository(itemDao)
         fun bind(item: ShoppingCartItem) = with(itemView) {
             shopping_item_name_text.text = item.name
-            shopping_item_price_text.text = item.price
+            shopping_item_price_text.text = "$".plus(item.price.toString())
             shopping_item_quantity_text.text = item.quantity.toString()
 
             shopping_item_add_button.setOnClickListener {
-                increment(shopping_item_quantity_text, item)
+                increment(shopping_item_quantity_text, shopping_item_price_text, item)
             }
             shopping_item_remove_button.setOnClickListener {
-                decrement(shopping_item_quantity_text, item)
+                decrement(shopping_item_quantity_text, shopping_item_price_text, item)
             }
             shopping_item_delete_button.setOnClickListener {
                 CoroutineScope(Main).launch {
@@ -64,25 +64,45 @@ class ShoppingCartAdapter : RecyclerView.Adapter<ShoppingCartAdapter.ShoppingCar
             }
         }
 
-        private fun increment(textView: TextView, shoppingCartItem: ShoppingCartItem) {
-            var currentQuantity = Integer.parseInt(textView.text.toString())
-            if (currentQuantity < 100) {
+        private fun increment(
+            quantityText: TextView,
+            priceText: TextView,
+            shoppingCartItem: ShoppingCartItem
+        ) {
+            var currentQuantity = Integer.parseInt(quantityText.text.toString())
+            val price = priceText.text.toString().drop(1)
+            var currentPrice = Integer.parseInt(price)
+            if (currentQuantity < 50) {
                 currentQuantity += 1
+                currentPrice *= 2
                 shoppingCartItem.quantity = currentQuantity
-                textView.text = currentQuantity.toString()
+                shoppingCartItem.price = currentPrice
+                CoroutineScope(Main).launch { repository.changeQuantity(shoppingCartItem) }
+                quantityText.text = currentQuantity.toString()
             } else {
-                Toast.makeText(itemView.context, "Maximum quantity reached", Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "Maximum quantity reached", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
-        private fun decrement(textView: TextView, shoppingCartItem: ShoppingCartItem) {
-            var currentQuantity = Integer.parseInt(textView.text.toString())
+        private fun decrement(
+            quantityText: TextView,
+            priceText: TextView,
+            shoppingCartItem: ShoppingCartItem
+        ) {
+            var currentQuantity = Integer.parseInt(quantityText.text.toString())
+            val price = priceText.text.toString().drop(1)
+            var currentPrice = Integer.parseInt(price)
             if (currentQuantity > 1) {
                 currentQuantity -= 1
+                currentPrice /= 2
                 shoppingCartItem.quantity = currentQuantity
-                textView.text = currentQuantity.toString()
+                shoppingCartItem.price = currentPrice
+                CoroutineScope(Main).launch { repository.changeQuantity(shoppingCartItem) }
+                quantityText.text = currentQuantity.toString()
             } else {
-                Toast.makeText(itemView.context, "Minimum quantity reached", Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "Minimum quantity reached", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }

@@ -34,7 +34,7 @@ class ItemDetailsFragment : DialogFragment() {
             val item = arguments!!.getSerializable(SERIALIZABLE_KEY) as Item
             view.findViewById<TextView>(R.id.item_details_name).text = item.name
             view.findViewById<TextView>(R.id.item_details_description).text = item.description
-            view.findViewById<TextView>(R.id.item_details_price).text = item.price
+            view.findViewById<TextView>(R.id.item_details_price).text = "$".plus(item.price)
             view.findViewById<ImageView>(R.id.item_details_image).setImageResource(item.imageResource)
 
             view.findViewById<Button>(R.id.item_details_addToCart_button).setOnClickListener {

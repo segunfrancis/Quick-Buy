@@ -14,6 +14,6 @@ data class Item(
     @PrimaryKey @ColumnInfo(name = "itemName") val name: String,
     @ColumnInfo(name = "itemCategory") val category: String,
     @ColumnInfo(name = "itemDescription") val description: String,
-    @ColumnInfo(name = "itemPrice") val price: String,
+    @ColumnInfo(name = "itemPrice") val price: Int,
     @ColumnInfo(name = "itemImage") val imageResource: Int
 ) : Serializable

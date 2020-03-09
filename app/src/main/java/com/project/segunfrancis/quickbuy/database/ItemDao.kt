@@ -42,4 +42,7 @@ interface ItemDao {
 
     @Query("DELETE FROM shopping_cart_table")
     suspend fun clearShoppingCart()
+
+    @Insert(entity = ShoppingCartItem::class, onConflict = OnConflictStrategy.REPLACE)
+    suspend fun changeQuantity(shoppingCartItem: ShoppingCartItem)
 }

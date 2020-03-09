@@ -27,4 +27,6 @@ class ItemRepository(private var itemDao: ItemDao) {
         itemDao.deleteSingleItem(shoppingCartItem)
 
     suspend fun clearShoppingCart() = itemDao.clearShoppingCart()
+
+    suspend fun changeQuantity(shoppingCartItem: ShoppingCartItem) = itemDao.changeQuantity(shoppingCartItem)
 }
