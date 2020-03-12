@@ -11,7 +11,9 @@ class DefaultItemRepository(
     private val service: ItemService,
     private val cache: ItemLocalCache
 ) {
-
+    fun departments() {
+        val dataSourceFactory = cache
+    }
 
     companion object {
         private const val DATABASE_PAGE_SIZE = 20

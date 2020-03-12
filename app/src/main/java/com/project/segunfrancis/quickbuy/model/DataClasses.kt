@@ -83,6 +83,15 @@ data class CustomerRegister(
     val expires_in: String
 )
 
+data class UpdateCustomer(
+    var name: String,
+    var email: String,
+    var password: String?,
+    var day_phone: String?,
+    var eve_phone: String?,
+    var mob_phone: String?
+)
+
 data class UpdateCustomerAddress(
     var address_1: String,
     var address_2: String?,
@@ -110,6 +119,19 @@ data class CartWithProduct(
     val quantity: Int,
     val product_id: Int,
     val subtotal: String
+)
+
+data class AddCartProduct(
+    var cart_id: String,
+    var product_id: Int,
+    var attributes: String
+)
+
+data class GetSavedProduct(
+    val item_id: Int,
+    val name: String,
+    val attributes: String,
+    val price: String
 )
 
 data class Attribute(

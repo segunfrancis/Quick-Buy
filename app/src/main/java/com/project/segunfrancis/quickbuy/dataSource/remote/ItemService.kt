@@ -72,14 +72,7 @@ interface ItemService {
 
     /* CUSTOMERS */
     @PUT("customer")
-    fun updateCustomer(
-        name: String,
-        email: String,
-        password: String?,
-        day_phone: String?,
-        eve_phone: String?,
-        mob_phone: String?
-    ): Call<Customer>
+    fun updateCustomer(customer: UpdateCustomer): Call<Customer>
 
     @GET("customer")
     fun getCustomerById(@Header("access_token") token: String): Call<Customer>
@@ -98,4 +91,39 @@ interface ItemService {
 
     @PUT("customers/creditCard")
     fun updateCustomerCardDetails(creditCard: String): Call<Customer>
+
+    /* ORDERS */
+    @POST("orders")
+    fun createOrder()
+
+    /* SHOPPING CART */
+    @GET("shoppingcart/generateUniqueId")
+    fun generateUniqueCartID(): Call<String>
+
+    @POST("shoppingcart/add")
+    fun addProductToCart(product: AddCartProduct): Call<List<CartWithProduct>>
+
+    @GET("shoppingcart/{cart_id}")
+    fun getProductList(cart_id: String): Call<List<Cart>>
+
+    @PUT("shoppingcart/update/{item_id}")
+    fun updateCartItem(item_id: Int, quantity: Int): Call<List<Cart>>
+
+    @DELETE("shoppingcart/empty/{cart_id}")
+    fun emptyCart(cart_id: String): Call<Void>
+
+    @DELETE("shoppingcart/removeProduct/{item_id}")
+    fun deleteSingleCartProduct(item_id: Int): Call<Void>
+
+    @GET("shoppingcart/moveToCart/{item_id}")
+    fun moveProductToCart(item_id: Int): Call<Void>
+
+    @GET("shoppingcart/totalAmount/{cart_id}")
+    fun totalAmountFromCart(cart_id: String): Call<Int>
+
+    @GET("shoppingcart/saveForLater/{item_id}")
+    fun saveProductForLater(item_id: Int): Call<Void>
+
+    @GET("shoppingcart/getSaved/{cart_id}")
+    fun getSavedProducts(cart_id: String): Call<GetSavedProduct>
 }
