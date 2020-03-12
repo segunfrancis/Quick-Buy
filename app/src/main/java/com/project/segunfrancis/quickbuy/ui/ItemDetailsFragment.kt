@@ -35,14 +35,14 @@ class ItemDetailsFragment : DialogFragment() {
             view.findViewById<TextView>(R.id.item_details_name).text = item.name
             view.findViewById<TextView>(R.id.item_details_description).text = item.description
             view.findViewById<TextView>(R.id.item_details_price).text = "$".plus(item.price)
-            view.findViewById<ImageView>(R.id.item_details_image).setImageResource(item.imageResource)
+            view.findViewById<ImageView>(R.id.item_details_image)
+                .setImageResource(item.imageResource)
 
             view.findViewById<Button>(R.id.item_details_addToCart_button).setOnClickListener {
                 val shoppingCartItem = ShoppingCartItem(item.name, item.price, 1)
-                itemViewModel.insertIntoShoppingCartItem(shoppingCartItem)
+                //itemViewModel.insertIntoShoppingCartItem(shoppingCartItem)
             }
         }
         return builder.create()
     }
-
 }

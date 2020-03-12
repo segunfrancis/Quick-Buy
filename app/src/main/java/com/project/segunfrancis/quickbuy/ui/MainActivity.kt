@@ -1,4 +1,4 @@
-package com.project.segunfrancis.quickbuy
+package com.project.segunfrancis.quickbuy.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.project.segunfrancis.quickbuy.R
 
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
     /**

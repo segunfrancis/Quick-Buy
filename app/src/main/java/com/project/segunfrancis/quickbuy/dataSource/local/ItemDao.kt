@@ -1,4 +1,4 @@
-package com.project.segunfrancis.quickbuy.database
+package com.project.segunfrancis.quickbuy.dataSource.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import com.project.segunfrancis.quickbuy.R
-import com.project.segunfrancis.quickbuy.database.ItemsRoomDatabase
+import com.project.segunfrancis.quickbuy.dataSource.local.ItemsRoomDatabase
 import com.project.segunfrancis.quickbuy.model.ShoppingCartItem
 import com.project.segunfrancis.quickbuy.repository.ItemRepository
 import kotlinx.android.synthetic.main.shopping_cart_list_item.view.*
@@ -43,7 +43,7 @@ class ShoppingCartAdapter : RecyclerView.Adapter<ShoppingCartAdapter.ShoppingCar
     }
 
     inner class ShoppingCartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val itemDao = ItemsRoomDatabase.getDatabase(itemView.context, MainScope()).itemDao()
+        private val itemDao = ItemsRoomDatabase.getDatabase(itemView.context).itemDao()
         private val repository = ItemRepository(itemDao)
         fun bind(item: ShoppingCartItem) = with(itemView) {
             shopping_item_name_text.text = item.name

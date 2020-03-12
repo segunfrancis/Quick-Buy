@@ -1,7 +1,7 @@
 package com.project.segunfrancis.quickbuy.repository
 
 import androidx.lifecycle.LiveData
-import com.project.segunfrancis.quickbuy.database.ItemDao
+import com.project.segunfrancis.quickbuy.dataSource.local.ItemDao
 import com.project.segunfrancis.quickbuy.model.Item
 import com.project.segunfrancis.quickbuy.model.ShoppingCartItem
 
@@ -10,6 +10,7 @@ import com.project.segunfrancis.quickbuy.model.ShoppingCartItem
  */
 
 class ItemRepository(private var itemDao: ItemDao) {
+
     fun getShoes(): LiveData<List<Item>> = itemDao.getShoes()
     fun getLaptops(): LiveData<List<Item>> = itemDao.getLaptops()
     fun getCameras(): LiveData<List<Item>> = itemDao.getCameras()

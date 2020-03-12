@@ -9,10 +9,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.project.segunfrancis.quickbuy.Injection
 
 import com.project.segunfrancis.quickbuy.R
 import com.project.segunfrancis.quickbuy.adapter.ItemRecyclerAdapter
 import com.project.segunfrancis.quickbuy.viewModel.ItemViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.coroutineScope
 
 /**
  * A simple [Fragment] subclass.
@@ -29,12 +33,13 @@ class CameraFragment : Fragment() {
         val recyclerView = root.findViewById<RecyclerView>(R.id.camera_recyclerView)
         val adapter = ItemRecyclerAdapter()
         recyclerView.adapter = adapter
-        itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
+
+        /*itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
         itemViewModel.cameras.observe(viewLifecycleOwner, Observer { item ->
             item.let {
                 adapter.setData(it)
             }
-        })
+        })*/
         return root
     }
 }

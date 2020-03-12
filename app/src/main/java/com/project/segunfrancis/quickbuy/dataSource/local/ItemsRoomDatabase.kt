@@ -1,4 +1,4 @@
-package com.project.segunfrancis.quickbuy.database
+package com.project.segunfrancis.quickbuy.dataSource.local
 
 import android.content.Context
 import androidx.room.Database
@@ -23,8 +23,9 @@ abstract class ItemsRoomDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: ItemsRoomDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): ItemsRoomDatabase {
-            val tempInstance = INSTANCE
+        fun getDatabase(context: Context): ItemsRoomDatabase {
+            val tempInstance =
+                INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }
@@ -33,7 +34,7 @@ abstract class ItemsRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     ItemsRoomDatabase::class.java,
                     "item_database"
-                ).addCallback(ItemDatabaseCallback(scope))
+                )/*.addCallback(ItemDatabaseCallback(scope))*/
                     .build()
                 INSTANCE = instance
                 return instance
